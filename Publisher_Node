@@ -7,10 +7,11 @@ from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
 import numpy as np
 
+cap = cv2.VideoCapture(1)
 class FaceMidpointPublisher:
     def __init__(self):
         self.bridge = CvBridge()
-        self.image_sub = rospy.Subscriber("path to image", Image, self.image_callback)
+        self.image_sub = rospy.Subscriber("cap", Image, self.image_callback)
         self.face_midpoint_pub = rospy.Publisher("/face_midpoint", Point, queue_size=10)
     
     def image_callback(self, msg):
