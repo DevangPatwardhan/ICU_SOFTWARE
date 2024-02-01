@@ -9,7 +9,7 @@ import numpy as np
 class ColorAndFaceDetector:
     def __init__(self):
         self.bridge = CvBridge()
-        self.image_sub = rospy.Subscriber("/camera/image_raw", Image, self.image_callback)
+        self.image_sub = rospy.Subscriber("path to image", Image, self.image_callback)
     
     def image_callback(self, msg):
         try:
