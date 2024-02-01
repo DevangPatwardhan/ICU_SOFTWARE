@@ -10,7 +10,7 @@ import numpy as np
 class FaceMidpointPublisher:
     def __init__(self):
         self.bridge = CvBridge()
-        self.image_sub = rospy.Subscriber("/camera/image_raw", Image, self.image_callback)
+        self.image_sub = rospy.Subscriber("path to image", Image, self.image_callback)
         self.face_midpoint_pub = rospy.Publisher("/face_midpoint", Point, queue_size=10)
     
     def image_callback(self, msg):
